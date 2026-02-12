@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+  <defs>
+    <!-- Cyan glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Intense glow for light cycles -->
+    <filter id="cycleGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Light cycle gradient trail -->
+    <linearGradient id="trailGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0"/>
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:1"/>
+    </linearGradient>
+
+    <linearGradient id="trailGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:0"/>
+      <stop offset="100%" style="stop-color:#ff6b35;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    @keyframes cycle1 {
+      0% { offset-distance: 0%; }
+      100% { offset-distance: 100%; }
+    }
+
+    @keyframes cycle2 {
+      0% { offset-distance: 50%; }
+      100% { offset-distance: 150%; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes textGlow {
+      0%, 100% { filter: drop-shadow(0 0 5px #00d4ff); }
+      50% { filter: drop-shadow(0 0 15px #00d4ff) drop-shadow(0 0 30px #00d4ff); }
+    }
+
+    .light-cycle-1 {
+      offset-path: path('M 100,50 L 700,50 L 700,250 L 100,250 Z');
+      animation: cycle1 4s linear infinite;
+    }
+
+    .light-cycle-2 {
+      offset-path: path('M 100,50 L 700,50 L 700,250 L 100,250 Z');
+      animation: cycle2 4s linear infinite;
+    }
+
+    .main-title {
+      animation: textGlow 2s ease-in-out infinite;
+    }
+
+    .grid-line {
+      animation: pulse 3s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="800" height="300" fill="#0d1117"/>
+
+  <!-- Grid lines for Tron effect -->
+  <g class="grid-line" opacity="0.3">
+    <line x1="0" y1="75" x2="800" y2="75" stroke="#00d4ff" stroke-width="0.5"/>
+    <line x1="0" y1="150" x2="800" y2="150" stroke="#00d4ff" stroke-width="0.5"/>
+    <line x1="0" y1="225" x2="800" y2="225" stroke="#00d4ff" stroke-width="0.5"/>
+    <line x1="200" y1="0" x2="200" y2="300" stroke="#00d4ff" stroke-width="0.5"/>
+    <line x1="400" y1="0" x2="400" y2="300" stroke="#00d4ff" stroke-width="0.5"/>
+    <line x1="600" y1="0" x2="600" y2="300" stroke="#00d4ff" stroke-width="0.5"/>
+  </g>
+
+  <!-- Main border box -->
+  <rect x="100" y="50" width="600" height="200" fill="none" stroke="#00d4ff" stroke-width="2" filter="url(#glow)" rx="5"/>
+
+  <!-- Inner frame -->
+  <rect x="110" y="60" width="580" height="180" fill="none" stroke="#00d4ff" stroke-width="0.5" opacity="0.5" rx="3"/>
+
+  <!-- Light Cycle 1 (Cyan) - the cycle head -->
+  <g class="light-cycle-1" filter="url(#cycleGlow)">
+    <circle r="6" fill="#00d4ff"/>
+    <circle r="3" fill="#ffffff"/>
+  </g>
+
+  <!-- Light Cycle 2 (Orange) - the cycle head -->
+  <g class="light-cycle-2" filter="url(#cycleGlow)">
+    <circle r="6" fill="#ff6b35"/>
+    <circle r="3" fill="#ffffff"/>
+  </g>
+
+  <!-- Username text -->
+  <text x="400" y="120" text-anchor="middle" font-family="'Courier New', monospace" font-size="48" font-weight="bold" fill="#00d4ff" class="main-title" filter="url(#glow)">
+    jmlake569
+  </text>
+
+  <!-- Tagline -->
+  <text x="400" y="160" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#00d4ff" opacity="0.9">
+    AI  ·  AUTOMATION  ·  CRYPTO  ·  THE GRID
+  </text>
+
+  <!-- Subtitle -->
+  <text x="400" y="200" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#ffffff" opacity="0.7">
+    Building the future at machine speed
+  </text>
+
+  <!-- Corner accents -->
+  <path d="M 100,70 L 100,50 L 120,50" fill="none" stroke="#00d4ff" stroke-width="3" filter="url(#glow)"/>
+  <path d="M 680,50 L 700,50 L 700,70" fill="none" stroke="#00d4ff" stroke-width="3" filter="url(#glow)"/>
+  <path d="M 700,230 L 700,250 L 680,250" fill="none" stroke="#00d4ff" stroke-width="3" filter="url(#glow)"/>
+  <path d="M 120,250 L 100,250 L 100,230" fill="none" stroke="#00d4ff" stroke-width="3" filter="url(#glow)"/>
+
+  <!-- Decorative elements -->
+  <text x="115" y="45" font-family="'Courier New', monospace" font-size="10" fill="#00d4ff" opacity="0.6">GRID://USER</text>
+  <text x="620" y="45" font-family="'Courier New', monospace" font-size="10" fill="#00d4ff" opacity="0.6">STATUS:ONLINE</text>
+  <text x="115" y="265" font-family="'Courier New', monospace" font-size="10" fill="#ff6b35" opacity="0.6">CYCLE:ACTIVE</text>
+  <text x="620" y="265" font-family="'Courier New', monospace" font-size="10" fill="#ff6b35" opacity="0.6">SECTOR:7.G</text>
+</svg>
