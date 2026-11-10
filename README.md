@@ -95,18 +95,6 @@ Containers, clouds, APIs — the backbone of the digital frontier.
 
 ---
 
-## `// GRID STATISTICS`
-
-<div align="center">
-
-![GitHub Stats](https://github-stats-extended.vercel.app/api?username=jmlake569&show_icons=true&theme=tokyonight&bg_color=0d1117&title_color=00d4ff&icon_color=00d4ff&text_color=c9d1d9&border_color=00d4ff)
-
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=jmlake569&theme=tokyonight&background=0d1117&border=00d4ff&ring=00d4ff&fire=ff6b35&currStreakLabel=00d4ff)
-
-</div>
-
----
-
 ## `// ACTIVE PROGRAMS`
 
 ```
